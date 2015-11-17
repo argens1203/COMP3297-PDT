@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load class_check_tag %}
+
+{% block identification %}
+
+	{% ifusergroup ProjectManager %}
+		Project Manager
+	{% else %}
+		{% ifusergroup SoftwareDeveloper %}
+			Software Developer
+		{% else %}
+			<!-- {% ifusergroup Admin %}
+				Admin
+			{% else %} -->
+				Nobody
+			{% endifusergroup %}
+		{% endifusergroup %}
+	{% endifusergroup %}
+
+{% endblock %}
